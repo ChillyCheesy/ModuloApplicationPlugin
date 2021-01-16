@@ -1,0 +1,53 @@
+plugins {
+    id 'groovy'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+    id 'com.jfrog.bintray' version '1.8.5'
+}
+
+group = 'fr.owle'
+version = '1.0.0'
+
+repositories {
+    jcenter()
+}
+
+gradlePlugin {
+    plugins {
+        hometrackerApplication {
+            id = 'hometracker-application'
+            displayName = 'HomeTracker Application'
+            description = 'Help to create HomeTracker\'s modules'
+            implementationClass = 'fr.owle.application.HomeTrackerApplicationPlugin'
+        }
+    }
+}
+
+publishing {
+    publications {
+        hometrackerApplicationPlugin(MavenPublication) {
+            from components.java
+            groupId project.group
+            artifactId project.archivesBaseName
+            version project.version
+        }
+    }
+}
+
+bintray {
+    user = project.hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+    key = project.hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+    publications = ['hometrackerApplicationPlugin']
+    publish = true
+    pkg {
+        repo = 'java'
+        name = project.archivesBaseName
+        userOrg = 'hometracker'
+        licenses  = ['Apache-2.0']
+        vcsUrl = 'https://github.com/Owl-e/hometracker-application-plugin'
+        version {
+            name = project.version
+            released = new Date()
+        }
+    }
+}
