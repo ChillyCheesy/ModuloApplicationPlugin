@@ -1,3 +1,5 @@
+[![Owl-e](https://circleci.com/gh/Owl-e/hometracker-application-plugin/tree/main.svg?style=svg)](https://circleci.com/gh/Owl-e/hometracker-application-plugin/tree/main)
+[![Download](https://api.bintray.com/packages/hometracker/java/hometracker-application/images/download.svg) ](https://bintray.com/hometracker/java/hometracker-application/_latestVersion)
 # HomeTracker Application Plugin
 
 ## Overview.
