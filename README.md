@@ -1,5 +1,5 @@
-[![Owl-e](https://circleci.com/gh/Owl-e/hometracker-application-plugin/tree/main.svg?style=svg)](https://circleci.com/gh/Owl-e/hometracker-application-plugin/tree/main)
-[![Download](https://api.bintray.com/packages/hometracker/java/hometracker-application/images/download.svg) ](https://bintray.com/hometracker/java/hometracker-application/_latestVersion)
+[![ Owle](https://circleci.com/gh/Owl-e/hometracker\-application\-plugin/tree/main.svg?style=svg)](https://circleci.com/gh/Owl-e/hometracker-application-plugin/tree/main)
+[![ Download](https://api.bintray.com/packages/hometracker/java/hometracker-application/images/download.svg) ](https://bintray.com/hometracker/java/hometracker-application/_latestVersion)
 # HomeTracker Application Plugin
 
 ## Overview.
@@ -91,6 +91,7 @@ The following array was the exhaustive list of **module**'s parameters.
 | version          | Module version.                                          |       version      |                   Your Gradle project version. |
 | authors          | Module authors.                                          |       authors      |                                        ['you'] |
 | main             | Module main.                                             |        main        | Concat the project group and the project name. |
+| mainPageName     | Module main page name.                                   |     mainPageName   |                                        'index' |
 | dependencies     | Module dependencies.                                     |     dependencies   |                                     void list. |
 | softDependencies | Module soft dependencies.                                |   softDependencies |                                     void list. |
 | target           | The output folder for the generated **module.yml** file. |        none        |                           'src/main/resources' |

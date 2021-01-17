@@ -25,6 +25,7 @@ class HomeTrackerApplicationPlugin implements Plugin<Project> {
                 file.text += createSection('softDependencies', moduleExtension.softDependencies)
                 file.text += createSection('dependencies', moduleExtension.dependencies)
                 file.text += createSection('main', moduleExtension.main)
+                file.text += createSection('mainPageName', moduleExtension.mainPageName)
             }
         }
         project.processResources.dependsOn project.generateModuleYml

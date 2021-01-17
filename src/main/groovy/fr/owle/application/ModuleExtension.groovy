@@ -9,6 +9,7 @@ class ModuleExtension {
     String main
     String version
     String target
+    String mainPageName = 'index'
     List<String> authors = ['You']
     List<String> dependencies = []
     List<String> softDependencies = []
