@@ -18,7 +18,7 @@ class ModuleExtension {
         moduleName = project.name
         version = project.version
         main = "${project.group.toString()}.${moduleName}"
-        target = "src/main/resources"
+        target = "${project.projectDir.path}/src/main/resources"
     }
 
 }
