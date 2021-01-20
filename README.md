@@ -15,6 +15,10 @@ The HomeTracker Application Plugin give help to deploy HomeTracker's modules.
 * [Plugins Documentation](#doc)
     * [Closures section](#closures)
         * [module](#closures-module)
+        * [buildModuleConfiguration](#buildModuleConfiguration)
+            * [The front argument](#frontArgument)
+                * [Section arguments](#sectionArgument)
+            * [The buildTask argument](#buildTaskArgument)
     * [Tasks section](#tasks)
         * [generateModuleYml](#tasks-generateModuleYml)
 ## Getting Started Using the Plugin. <a id="start"></a>
@@ -96,6 +100,43 @@ The following array was the exhaustive list of **module**'s parameters.
 | dependencies     | Module dependencies.                                     |     dependencies   |                                     void list. |
 | softDependencies | Module soft dependencies.                                |   softDependencies |                                     void list. |
 | target           | The output folder for the generated **module.yml** file. |        none        |                           'src/main/resources' |
+### buildModuleConfiguration. <a id="buildModuleConfiguration"></a>
+The *buildModuleConfiguration* closure define the configuration to build modules dependencies.
+### fronts arguments <a id="frontArgument"></a>
+With the front argument you can define a front project build configuration.
+Look at this example below.
+```groovy
+buildModuleConfiguration {
+    fronts.create('indexPage') {
+        buildTask project(':front').tasks.build
+        from = "$projectDir/front/dist"
+        into = "$projectDir/module/src/main/resources/index-page"
+    }
+    buildTask build
+}
+```
+Here we create a configuration called '*indexPage*'. Let's get a look to the arguments you can use in this section.
+#### Section arguments. <a id="sectionArgument"></a>
+* `buildTask`: It is the task that build the front. 
+* `from`: It is the path of the built front.
+* `into`: It is the path where you want to copy the built front.
+### buildTask argument. <a id="buildTaskArgument"></a>
+The `buildTask` parameter need to be called last in the `buildModuleConfiguration`. It will represent the build task of your module *(the java part)*.
+To be sure your used tasks are loaded, you can encapsulate the `buildModuleConfiguration` into `gradle.projectsEvaluated` just like below.
+```groovy
+apply plugin: 'hometracker-application'
+
+gradle.projectsEvaluated {
+    buildModuleConfiguration {
+        fronts.create('indexPage') {
+            buildTask project(':front').tasks.build
+            from = "$projectDir/front/dist"
+            into = "$projectDir/module/src/main/resources/index-page"
+        }
+        buildTask build
+    }
+}
+```
 
 ## Tasks section. <a id="tasks"></a>
 ### generateModuleYml. <a id="tasks-generateModuleYml"></a>
