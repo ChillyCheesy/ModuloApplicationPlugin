@@ -21,6 +21,7 @@ The HomeTracker Application Plugin give help to deploy HomeTracker's modules.
             * [The buildTask argument](#buildTaskArgument)
     * [Tasks section](#tasks)
         * [generateModuleYml](#tasks-generateModuleYml)
+        * [buildModule](#tasks-buildModule)
 ## Getting Started Using the Plugin. <a id="start"></a>
 ### *Step 1: Apply the plugin to your Gradle build script.* <a id="start-1"></a>
 To apply the plugin, please add this following part of code.
@@ -28,7 +29,7 @@ To apply the plugin, please add this following part of code.
 buildscript {
     repositories {
         maven {
-            url  'https://dl.bintray.com/hometracker/java'
+            url 'https://dl.bintray.com/hometracker/java'
         }
         dependencies {
             classpath 'fr.owle:hometracker-application:+'
@@ -102,7 +103,7 @@ The following array was the exhaustive list of **module**'s parameters.
 | target           | The output folder for the generated **module.yml** file. |        none        |                           'src/main/resources' |
 ### buildModuleConfiguration. <a id="buildModuleConfiguration"></a>
 The *buildModuleConfiguration* closure define the configuration to build modules dependencies.
-### fronts arguments <a id="frontArgument"></a>
+### fronts arguments. <a id="frontArgument"></a>
 With the front argument you can define a front project build configuration.
 Look at this example below.
 ```groovy
@@ -140,4 +141,7 @@ gradle.projectsEvaluated {
 
 ## Tasks section. <a id="tasks"></a>
 ### generateModuleYml. <a id="tasks-generateModuleYml"></a>
-This Task generate the **module.yml** file.
+This task generate the **module.yml** file.
+### buildModule. <a id="tasks-buildModule"></a>
+This task build your module. *(The task was create if you add the `buildModuleConfiguration` inside your project.)*
+
