@@ -4,6 +4,7 @@ import fr.owle.application.extensions.BuildModuleConfigurationExtension
 import fr.owle.application.extensions.ModuleExtension
 import org.gradle.api.Project
 import org.gradle.api.Plugin
+import org.gradle.api.tasks.Copy
 
 class HomeTrackerApplicationPlugin implements Plugin<Project> {
 
@@ -17,12 +18,21 @@ class HomeTrackerApplicationPlugin implements Plugin<Project> {
     }
 
     static def createBuildModuleTask(Project project, BuildModuleConfigurationExtension buildModuleConfigurationExtension) {
+        buildModuleConfigurationExtension.fronts.each { front ->
+            final def taskName = "${front.name}CopyResource";
+            project.task(taskName, type: Copy) {
+                group = 'hometracker'
+                description = "Copy resource for ${front.name} configuration."
+                dependsOn front.buildTask
+                println "${front.from} -> ${front.into}"
+                from front.from
+                into front.into
+            }
+            buildModuleConfigurationExtension.resourceTask().dependsOn project.tasks.getByName(taskName)
+        }
         project.task('buildModule') {
             group = 'hometracker'
-            description = 'Build the module'
-            buildModuleConfigurationExtension.fronts.each { front ->
-                buildModuleConfigurationExtension.resourceTask().dependsOn front.buildTask
-            }
+            description = 'Build the module.'
             finalizedBy buildModuleConfigurationExtension.buildTask()
         }
     }
