@@ -9,6 +9,7 @@ class FrontContainer {
     Task buildTask
     String from
     String into
+    boolean deleteResources = true
 
     FrontContainer(String name) {
         this.name = name
@@ -24,6 +25,10 @@ class FrontContainer {
 
     void into(String into) {
         this.into = into
+    }
+
+    void deleteResources(boolean deleteResources) {
+        this.deleteResources = deleteResources
     }
 
 

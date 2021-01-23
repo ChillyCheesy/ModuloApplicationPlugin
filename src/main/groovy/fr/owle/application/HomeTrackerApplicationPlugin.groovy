@@ -5,6 +5,7 @@ import fr.owle.application.extensions.ModuleExtension
 import org.gradle.api.Project
 import org.gradle.api.Plugin
 import org.gradle.api.tasks.Copy
+import org.gradle.api.tasks.Delete
 
 class HomeTrackerApplicationPlugin implements Plugin<Project> {
 
@@ -19,16 +20,24 @@ class HomeTrackerApplicationPlugin implements Plugin<Project> {
 
     static def createBuildModuleTask(Project project, BuildModuleConfigurationExtension buildModuleConfigurationExtension) {
         buildModuleConfigurationExtension.fronts.each { front ->
-            final def taskName = "${front.name}CopyResource";
-            project.task(taskName, type: Copy) {
+            final def taskNameCopy = "${front.name}CopyResource"
+            final def taskNameDelete = "${front.name}DeleteResource"
+            project.task(taskNameCopy, type: Copy) {
                 group = 'hometracker'
                 description = "Copy resource for ${front.name} configuration."
                 dependsOn front.buildTask
-                println "${front.from} -> ${front.into}"
                 from front.from
                 into front.into
             }
-            buildModuleConfigurationExtension.resourceTask().dependsOn project.tasks.getByName(taskName)
+            project.task(taskNameDelete, type: Delete) {
+                group = 'hometracker'
+                description = "Delete resource for ${front.name} configuration."
+                delete = front.into
+            }
+            buildModuleConfigurationExtension.resourceTask().dependsOn project.tasks.getByName(taskNameCopy)
+            if (front.deleteResources) {
+                project.tasks.getByName(taskNameCopy).dependsOn project.tasks.getByName(taskNameDelete)
+            }
         }
         project.task('buildModule') {
             group = 'hometracker'
