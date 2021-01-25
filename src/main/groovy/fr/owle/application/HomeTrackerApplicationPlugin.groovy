@@ -36,7 +36,7 @@ class HomeTrackerApplicationPlugin implements Plugin<Project> {
             }
             buildModuleConfigurationExtension.resourceTask().dependsOn project.tasks.getByName(taskNameCopy)
             if (front.deleteResources) {
-                project.tasks.getByName(taskNameCopy).dependsOn project.tasks.getByName(taskNameDelete)
+                project.tasks.compileJava.dependsOn project.tasks.getByName(taskNameDelete)
             }
         }
         project.task('buildModule') {
