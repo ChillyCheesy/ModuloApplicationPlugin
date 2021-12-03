@@ -1,4 +1,4 @@
-package fr.owle.application.extensions
+package com.owle.modulo.extensions
 
 import org.gradle.api.Project
 
@@ -8,8 +8,7 @@ class ModuleExtension {
     String main
     String version
     String target
-    String mainPageName = 'index'
-    List<String> authors = ['You']
+    List<String> authors = ['Owle']
     List<String> dependencies = []
     List<String> softDependencies = []
 
