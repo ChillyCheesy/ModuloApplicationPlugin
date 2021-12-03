@@ -19,7 +19,7 @@ The HomeTracker Application Plugin give help to deploy HomeTracker's modules.
 To apply the plugin, please add this following part of code.
 ```groovy
 plugins {
-    id: 'com.owle.modulo' version '0.0.1'
+    id: 'com.owle.modulo-application' version '0.0.1'
 }
 
 group 'your.group'
