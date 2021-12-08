@@ -1,0 +1,4 @@
+plugins {
+    id 'com.owle.modulo-application' version '0.0.1'
+}
+

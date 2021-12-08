@@ -1,36 +1,7 @@
-plugins {
-    id 'groovy'
-    id 'groovy-gradle-plugin'
-    id 'com.gradle.plugin-publish' version '0.18.0'
-    id 'maven-publish'
-}
-
-group = 'com.owle'
-version = '0.0.1'
-
-repositories {
-    mavenCentral()
-}
-
-gradlePlugin {
-    plugins {
-        moduloApplication {
-            id = "${group}.modulo-application"
-            displayName = 'Modulo Application'
-            description = 'Help to create Modulo\'s modules'
-            implementationClass = 'com.owle.modulo.ModuloApplicationPlugin'
-        }
-    }
-}
-
-pluginBundle {
-    website = 'https://github.com/Owl-e/modulo-application-plugin#readme'
-    vcsUrl = 'https://github.com/Owl-e/modulo-application-plugin'
-    description = gradlePlugin.plugins.moduloApplication.description
-    tags = ['modulo', 'module', 'module.yml']
-    mavenCoordinates {
-        groupId = 'com.owle'
-        artifactId = 'modulo-application'
-        version = version
+allprojects {
+    version = plugin_version
+    group = 'com.owle'
+    repositories {
+        mavenCentral()
     }
 }

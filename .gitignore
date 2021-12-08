@@ -1,4 +1,4 @@
-build
+modulo-application/build
 .gradle
 .idea
 gradle.properties
