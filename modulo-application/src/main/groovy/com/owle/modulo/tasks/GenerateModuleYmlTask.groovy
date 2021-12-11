@@ -2,7 +2,7 @@ package com.owle.modulo.tasks
 
 import com.owle.modulo.extensions.ModuleExtension
 import org.gradle.api.Project
-import org.gradle.internal.impldep.org.yaml.snakeyaml.Yaml
+import org.yaml.snakeyaml.Yaml
 
 class GenerateModuleYmlTask implements ModuloTask {
 
@@ -26,7 +26,7 @@ class GenerateModuleYmlTask implements ModuloTask {
                         authors: moduleExtension.authors,
                         main: moduleExtension.main,
                         dependencies: moduleExtension.dependencies,
-                        softDependencies: moduleExtension.softDependencie
+                        softDependencies: moduleExtension.softDependencies
                 ])
             }
         }

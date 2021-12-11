@@ -2,6 +2,12 @@ plugins {
     id 'groovy'
     id 'groovy-gradle-plugin'
     id 'com.gradle.plugin-publish' version '0.18.0'
+    id 'maven-publish'
+}
+
+dependencies {
+    gradleApi()
+    implementation group: 'org.yaml', name: 'snakeyaml', version: '1.19'
 }
 
 gradlePlugin {

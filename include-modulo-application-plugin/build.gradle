@@ -1,4 +1,9 @@
-plugins {
-    id 'com.owle.modulo-application' version '0.0.1'
-}
+ plugins {
+     id 'com.owle.modulo-application' version '0.0.1'
+ }
 
+ module {
+     moduleName 'SampleModule'
+     description 'Just a sample plugin.'
+     main 'com.owle.module.IncludeModuloApplication'
+ }

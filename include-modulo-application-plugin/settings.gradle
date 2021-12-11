@@ -1,7 +1,0 @@
-rootProject.name = 'modulo-gradle-application'
-
-includeBuild('com.owle.modulo-application') {
-    dependencySubstitution {
-        substitute module('com.owle.modulo-application') using project(':module-application')
-    }
-}

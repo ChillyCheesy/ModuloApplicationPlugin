@@ -1,2 +1,9 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+}
+
 rootProject.name = 'modulo-gradle-application'
 include 'modulo-application', 'include-modulo-application-plugin'
