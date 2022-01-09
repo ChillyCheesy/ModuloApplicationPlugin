@@ -23,14 +23,14 @@ gradlePlugin {
             id = "${group}.modulo-application"
             displayName = 'Modulo Application'
             description = 'Help to create Modulo\'s modules'
-            implementationClass = 'com.cheelycheesy.modulo.ModuloApplicationPlugin'
+            implementationClass = 'com.chillycheesy.modulo.ModuloApplicationPlugin'
         }
     }
 }
 
 pluginBundle {
-    website = 'https://github.com/Owl-e/modulo-application-plugin#readme'
-    vcsUrl = 'https://github.com/Owl-e/modulo-application-plugin'
+    website = 'https://modulo.chillycheesy.com'
+    vcsUrl = 'https://github.com/ChillyCheesy/modulo-gradle-application'
     description = gradlePlugin.plugins.moduloApplication.description
     tags = ['modulo', 'module', 'module.yml']
     mavenCoordinates {
