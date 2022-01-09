@@ -27,7 +27,8 @@ version '1.0.0'
 ```
 
 ### *Step 2: Add the module configuration to your project.* <a id="start-2"></a>
-Add the below **module** closure with your module's information inside.
+Add the below **module** closure with your module's information inside.  
+
 ```groovy
 module {
     moduleName 'MyAwesomeModule'
@@ -74,6 +75,7 @@ module {
 }
 ```
 The following array was the exhaustive list of **module**'s parameters.  
+
 |       Key        | Description                                              | Equivalent of YAML |                                  Default value |
 |:----------------:|:---------------------------------------------------------|:------------------:|-----------------------------------------------:|
 | moduleName       | Module name.                                             |        name        |                      Your Gradle project name. |
