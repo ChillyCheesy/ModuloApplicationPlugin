@@ -47,7 +47,7 @@ $> ./gradlew build
 ### *Step 4: Use your module.* <a id="start-4"></a>
 Take the built module and put it in the *modules* file of your HomeTracker server.  
 
-> Enjoy 🦉
+> Enjoy 🍻 🌶🧀 
 
 ## Plugins Documentation. <a id="doc"></a>
 
@@ -67,10 +67,10 @@ main: com.your.module.MainClass
 The above example part of code can be replaced by the below closure.
 ```groovy
 module {
-    moduleName = 'MyAwesomeModule'
-    version = '1.0.0'
-    authors = ['Wicket', 'Nippet']
-    main = 'com.your.module.MainClass'
+    moduleName 'MyAwesomeModule'
+    version '1.0.0'
+    authors ['Wicket', 'Nippet']
+    main 'com.your.module.MainClass'
 }
 ```
 The following array was the exhaustive list of **module**'s parameters.  
@@ -78,11 +78,11 @@ The following array was the exhaustive list of **module**'s parameters.
 |:----------------:|:---------------------------------------------------------|:------------------:|-----------------------------------------------:|
 | moduleName       | Module name.                                             |        name        |                      Your Gradle project name. |
 | version          | Module version.                                          |       version      |                   Your Gradle project version. |
-| authors          | Module authors.                                          |       authors      |                                       ['Owle'] |
+| authors          | Module authors.                                          |       authors      |                               ['ChillyCheesy'] |
 | main             | Module main.                                             |        main        | Concat the project group and the project name. |
 | mainPageName     | Module main page name.                                   |     mainPageName   |                                        'index' |
-| dependencies     | Module dependencies.                                     |     dependencies   |                                     void list. |
-| softDependencies | Module soft dependencies.                                |   softDependencies |                                     void list. |
+| dependencies     | Module dependencies.                                     |     dependencies   |                                    Empty list. |
+| softDependencies | Module soft dependencies.                                |   softDependencies |                                    Empty list. |
 | target           | The output folder for the generated **module.yml** file. |        none        |                           'src/main/resources' |
 
 
@@ -90,3 +90,4 @@ The following array was the exhaustive list of **module**'s parameters.
 ### generateModuleYml. <a id="tasks-generateModuleYml"></a>
 This task generate the **module.yml** file.
 
+🌶🧀
