@@ -13,10 +13,12 @@ The HomeTracker Application Plugin give help to deploy HomeTracker's modules.
     * [Closures section](#closures)
         * [module](#closures-module)
     * [Tasks section](#tasks)
-        * [generateModuleYml](#tasks-generateModuleYml)
+        * [generateModuleYml](#tasks-generateModuleYml)  
+
 ## Getting Started Using the Plugin. <a id="start"></a>
 ### *Step 1: Apply the plugin to your Gradle build script.* <a id="start-1"></a>
-To apply the plugin, please add this following part of code.
+To apply the plugin, please add this following part of code.  
+
 ```groovy
 plugins {
     id: 'com.chillycheesy.modulo-application' version '0.0.1'
@@ -40,7 +42,7 @@ module {
 
 ### *Step 3: Run the build task.* <a id="start-3"></a>
 The **modulo-application** plugin include the **java-library** plugin. Therefore, you have access to all **java-library**'s tasks include the **build** task.  
-Run this following command.
+Run this following command.  
 ```bash
 $> ./gradlew build
 ```
@@ -74,8 +76,9 @@ module {
     main 'com.your.module.MainClass'
 }
 ```
-The following array was the exhaustive list of **module**'s parameters.  
 
+The following array was the exhaustive list of **module**'s parameters.  
+  
 |       Key        | Description                                              | Equivalent of YAML |                                  Default value |
 |:----------------:|:---------------------------------------------------------|:------------------:|-----------------------------------------------:|
 | moduleName       | Module name.                                             |        name        |                      Your Gradle project name. |
