@@ -13,8 +13,8 @@ The HomeTracker Application Plugin give help to deploy HomeTracker's modules.
     * [Closures section](#closures)
         * [module](#closures-module)
     * [Tasks section](#tasks)
-        * [generateModuleYml](#tasks-generateModuleYml)  
-
+        * [generateModuleYml](#tasks-generateModuleYml)
+  
 ## Getting Started Using the Plugin. <a id="start"></a>
 ### *Step 1: Apply the plugin to your Gradle build script.* <a id="start-1"></a>
 To apply the plugin, please add this following part of code.  
