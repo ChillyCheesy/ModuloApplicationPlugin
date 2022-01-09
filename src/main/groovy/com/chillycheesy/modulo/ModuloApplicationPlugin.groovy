@@ -1,7 +1,7 @@
-package com.owle.modulo
+package com.chillycheesy.modulo
 
-import com.owle.modulo.extensions.ModuleExtension
-import com.owle.modulo.tasks.GenerateModuleYmlTask
+import com.chillycheesy.modulo.extensions.ModuleExtension
+import com.chillycheesy.modulo.tasks.GenerateModuleYmlTask
 import org.gradle.api.Project
 import org.gradle.api.Plugin
 

@@ -1,14 +1,14 @@
-package com.owle.modulo.tasks
+package com.chillycheesy.modulo.tasks
 
-import com.owle.modulo.extensions.ModuleExtension
+
 import org.gradle.api.Project
 import org.yaml.snakeyaml.Yaml
 
 class GenerateModuleYmlTask implements ModuloTask {
 
-    private ModuleExtension moduleExtension
+    private com.chillycheesy.modulo.extensions.ModuleExtension moduleExtension
 
-    GenerateModuleYmlTask(ModuleExtension moduleExtension) {
+    GenerateModuleYmlTask(com.chillycheesy.modulo.extensions.ModuleExtension moduleExtension) {
         this.moduleExtension = moduleExtension
     }
 

@@ -1,4 +1,4 @@
-package com.owle.modulo.extensions
+package com.chillycheesy.modulo.extensions
 
 import org.gradle.api.Project
 
@@ -8,7 +8,7 @@ class ModuleExtension {
     String main
     String version
     String target
-    List<String> authors = ['Owle']
+    List<String> authors = ['ChillyCheesy']
     List<String> dependencies = []
     List<String> softDependencies = []
 
