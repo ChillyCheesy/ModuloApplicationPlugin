@@ -21,7 +21,7 @@ To apply the plugin, please add this following part of code.
 
 ```groovy
 plugins {
-    id: 'com.chillycheesy.modulo-application' version '0.0.1'
+    id 'com.chillycheesy.modulo-application' version '0.0.1'
 }
 
 group 'your.group'
@@ -33,10 +33,10 @@ Add the below **module** closure with your module's information inside.
 
 ```groovy
 module {
-    moduleName 'MyAwesomeModule'
-    version '1.0.0'
-    authors ['Wicket', 'Nippet']
-    main 'com.your.module.MainClass'
+    moduleName = 'MyAwesomeModule'
+    version = '1.0.0'
+    authors = ['Wicket', 'Nippet']
+    main = 'com.your.module.MainClass'
 }
 ```
 
@@ -70,10 +70,10 @@ main: com.your.module.MainClass
 The above example part of code can be replaced by the below closure.
 ```groovy
 module {
-    moduleName 'MyAwesomeModule'
-    version '1.0.0'
-    authors ['Wicket', 'Nippet']
-    main 'com.your.module.MainClass'
+    moduleName = 'MyAwesomeModule'
+    version = '1.0.0'
+    authors = ['Wicket', 'Nippet']
+    main = 'com.your.module.MainClass'
 }
 ```
 
