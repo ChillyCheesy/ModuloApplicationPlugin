@@ -1,17 +1,33 @@
 package com.chillycheesy.modulo.tasks
 
-
+import com.chillycheesy.modulo.extensions.ModuleExtension
 import org.gradle.api.Project
 import org.yaml.snakeyaml.Yaml
 
+/**
+ * The GenerateModuleYmlTask generate the module.yml file before the Plugin build.
+ * The task use the {@link ModuleExtension} information to generate it.
+ */
 class GenerateModuleYmlTask implements ModuloTask {
 
-    private com.chillycheesy.modulo.extensions.ModuleExtension moduleExtension
+    /**
+     * The ModuleExtension store plugin.yml data.
+     */
+    private ModuleExtension moduleExtension
 
-    GenerateModuleYmlTask(com.chillycheesy.modulo.extensions.ModuleExtension moduleExtension) {
+    /**
+     * Create the Task
+     * @param moduleExtension The module extention who store plugin.yml data
+     */
+    GenerateModuleYmlTask(ModuleExtension moduleExtension) {
         this.moduleExtension = moduleExtension
     }
 
+    /**
+     * Create the task.
+     * @param project Target project.
+     * @return The new task
+     */
     @Override
     def generate(Project project) {
         return project.task('generateModuleYml') {
@@ -32,6 +48,10 @@ class GenerateModuleYmlTask implements ModuloTask {
         }
     }
 
+    /**
+     * Get the module.yml file and create it if doesn't exist.
+     * @return The file.
+     */
     private def getModuleConfigFile() {
         final resources = new File("${moduleExtension.target}")
         resources.mkdirs()

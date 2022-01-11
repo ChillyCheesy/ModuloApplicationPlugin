@@ -48,7 +48,7 @@ $> ./gradlew build
 ```
 
 ### *Step 4: Use your module.* <a id="start-4"></a>
-Take the built module and put it in the *modules* file of your HomeTracker server.  
+Take the built module and put it in the *modules* file of your Modulo server.  
 
 > Enjoy 🍻 🌶🧀 
 

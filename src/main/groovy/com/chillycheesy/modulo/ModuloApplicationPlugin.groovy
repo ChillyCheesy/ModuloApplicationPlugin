@@ -5,8 +5,15 @@ import com.chillycheesy.modulo.tasks.GenerateModuleYmlTask
 import org.gradle.api.Project
 import org.gradle.api.Plugin
 
+/**
+ * The plugin class with the apply method.
+ */
 class ModuloApplicationPlugin implements Plugin<Project> {
 
+    /**
+     * Init the plugin with the project.
+     * @param project The project who apply the plugin.
+     */
     @Override
     void apply(Project project) {
         project.pluginManager.apply 'java-library'
