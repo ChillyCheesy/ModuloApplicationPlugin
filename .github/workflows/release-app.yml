@@ -1,0 +1,58 @@
+name: Release App
+
+on: push
+
+jobs:
+  create_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+      - name: Extract project version
+        run: |
+          VERSION=$(./gradlew properties -q | grep "version:" | cut -d ' ' -f 2)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      - name: Build app
+        run: |
+          chmod +x gradlew
+          ./gradlew clean build
+      - name: Create release
+        if: github.ref == 'refs/heads/master'
+        uses: marvinpinto/action-automatic-releases@latest
+        id: create_release
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: latest
+          prerelease: false
+          title: "Release Modulo Application Plugin ${{ env.VERSION }}"
+          file: | 
+            build/libs/modulo-application-plugin-${{ env.VERSION }}.jar
+            build/libs/modulo-application-plugin-${{ env.VERSION }}-groovydoc.jar
+            build/libs/modulo-application-plugin-${{ env.VERSION }}-javadoc.jar
+            build/libs/modulo-application-plugin-${{ env.VERSION }}-sources.jar
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+  publish_gradle_plugin_portal:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '11'
+      - name: Define Gradle API Keys
+        env:
+          PROPERTIES_FILE: gradle.properties
+          GRADLE_API_KEY: ${{ secrets.GRADLE_API_KEY }}
+          GRADLE_PUBLISH_API_KEY: ${{ secrets.GRADLE_PUBLISH_API_KEY }}
+        run: |
+          echo "gradle.publish.key=${{ env.GRADLE_API_KEY }}" >> ${{ env.PROPERTIES_FILE }}
+          echo "gradle.publish.secret=${{ env.GRADLE_PUBLISH_API_KEY }}" >> ${{ env.PROPERTIES_FILE }}
+      - name: Publish plugin to Gradle Plugin Portal
+        run: |
+          chmod +x gradlew
+          ./gradlew publishPlugins

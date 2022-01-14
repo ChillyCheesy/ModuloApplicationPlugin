@@ -5,7 +5,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = '0.0.1'
+version = '0.0.2'
 group = 'com.chillycheesy'
 
 repositories {
@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    gradleApi()
+    implementation gradleApi()
     implementation group: 'org.yaml', name: 'snakeyaml', version: '1.19'
 }
 
