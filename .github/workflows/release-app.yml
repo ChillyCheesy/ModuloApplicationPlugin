@@ -27,8 +27,8 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: latest
           prerelease: false
-          title: "Release Modulo Application Plugin ${{ env.VERSION }}"
-          file: | 
+          title: "Release v${{ env.VERSION }}"
+          files: | 
             build/libs/modulo-application-plugin-${{ env.VERSION }}.jar
             build/libs/modulo-application-plugin-${{ env.VERSION }}-groovydoc.jar
             build/libs/modulo-application-plugin-${{ env.VERSION }}-javadoc.jar

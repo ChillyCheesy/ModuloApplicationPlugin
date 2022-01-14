@@ -1,5 +1,7 @@
 # Modulo Application Plugin
 
+![Release App](https://github.com/ChillyCheesy/ModuloGradleApplication/actions/workflows/release-app.yml/badge.svg?branch=master)
+
 ## Overview.
 The HomeTracker Application Plugin give help to deploy HomeTracker's modules.
 
