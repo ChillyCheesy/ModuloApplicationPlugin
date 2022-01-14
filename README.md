@@ -21,7 +21,7 @@ To apply the plugin, please add this following part of code.
 
 ```groovy
 plugins {
-    id 'com.chillycheesy.modulo-application' version '0.0.1'
+    id 'com.chillycheesy.modulo-application' version '0.0.3'
 }
 
 group 'your.group'
