@@ -36,10 +36,11 @@ class GenerateModuleYmlTask implements ModuloTask {
             doLast {
                 final moduleConfig = getModuleConfigFile()
                 final Yaml yaml = new Yaml()
+                final moduleName = moduleExtension.moduleName ?: project.name
                 moduleConfig.text = yaml.dump([
-                        name: moduleExtension.moduleName,
-                        version: moduleExtension.version,
-                        authors: moduleExtension.authors,
+                        name: moduleName,
+                        version: moduleExtension.version ?: project.version,
+                        authors: moduleExtension.authors ?: "${project.group.toString()}.${moduleName}",
                         main: moduleExtension.main,
                         dependencies: moduleExtension.dependencies,
                         softDependencies: moduleExtension.softDependencies
@@ -53,7 +54,8 @@ class GenerateModuleYmlTask implements ModuloTask {
      * @return The file.
      */
     private def getModuleConfigFile() {
-        final resources = new File("${moduleExtension.target}")
+        final target = moduleExtension.target ?: "${project.projectDir.path}/src/main/resources"
+        final resources = new File(target)
         resources.mkdirs()
         final file = new File("${resources.getPath()}/module.yml")
         if (!file.exists()) file.createNewFile()
