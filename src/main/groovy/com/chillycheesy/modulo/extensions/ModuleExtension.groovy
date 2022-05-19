@@ -39,6 +39,10 @@ class ModuleExtension {
      * Define softDependencies
      */
     List<String> softDependencies = []
+    /**
+     * Modulo api version.
+     */
+    String moduloVersion
 
     /**
      * Init the extension with default values.
