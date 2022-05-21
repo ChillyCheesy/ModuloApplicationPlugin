@@ -39,6 +39,10 @@ class ModuleExtension {
      * Define softDependencies
      */
     List<String> softDependencies = []
+    /**
+     * Modulo api version.
+     */
+    String moduloVersion = 'BINKS-0.1.0'
 
     /**
      * Init the extension with default values.
@@ -46,8 +50,6 @@ class ModuleExtension {
      */
     ModuleExtension(Project project) {
         moduleName = project.name
-        version = project.version
-        main = "${project.group.toString()}.${moduleName}"
         target = "${project.projectDir.path}/src/main/resources"
     }
 

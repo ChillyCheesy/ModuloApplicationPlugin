@@ -1,7 +1,9 @@
 package com.chillycheesy.modulo
 
 import com.chillycheesy.modulo.extensions.ModuleExtension
+import com.chillycheesy.modulo.tasks.DeployModuleTask
 import com.chillycheesy.modulo.tasks.GenerateModuleYmlTask
+import com.chillycheesy.modulo.tasks.RunModuloServer
 import org.gradle.api.Project
 import org.gradle.api.Plugin
 
@@ -17,10 +19,17 @@ class ModuloApplicationPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         project.pluginManager.apply 'java-library'
-        def moduleExtension = project.extensions.create('module', ModuleExtension, project)
-        def generateModuleYml = new GenerateModuleYmlTask(moduleExtension)
+        final moduleExtension = project.extensions.create('module', ModuleExtension, project)
+        final generateModuleYml = new GenerateModuleYmlTask(moduleExtension)
+        final runModuloServer = new RunModuloServer(moduleExtension)
+        final deployModule = new DeployModuleTask()
 
-        def generateModuleYmlTask = generateModuleYml.generate(project)
+        final generateModuleYmlTask = generateModuleYml.generate(project)
+        final runModuloServerTask = runModuloServer.generate(project)
+        final deployModuleTask = deployModule.generate(project)
+
         project.processResources.dependsOn generateModuleYmlTask
+        deployModuleTask.dependsOn project.assemble
+        runModuloServerTask.dependsOn deployModuleTask
     }
 }

@@ -17,7 +17,7 @@ class GenerateModuleYmlTask implements ModuloTask {
 
     /**
      * Create the Task
-     * @param moduleExtension The module extention who store plugin.yml data
+     * @param moduleExtension The module extension who store plugin.yml data
      */
     GenerateModuleYmlTask(ModuleExtension moduleExtension) {
         this.moduleExtension = moduleExtension
@@ -34,14 +34,14 @@ class GenerateModuleYmlTask implements ModuloTask {
             group = 'modulo'
             description = 'Generate the module.yml file for a Modulo module.'
             doLast {
-                final moduleConfig = getModuleConfigFile()
+                final moduleConfig = getModuleConfigFile(project)
                 final Yaml yaml = new Yaml()
                 final moduleName = moduleExtension.moduleName ?: project.name
                 moduleConfig.text = yaml.dump([
                         name: moduleName,
                         version: moduleExtension.version ?: project.version,
-                        authors: moduleExtension.authors ?: "${project.group.toString()}.${moduleName}",
-                        main: moduleExtension.main,
+                        authors: moduleExtension.authors ?: ['ChillyCheesy'],
+                        main: moduleExtension.main ?: "$moduleName",
                         dependencies: moduleExtension.dependencies,
                         softDependencies: moduleExtension.softDependencies
                 ])
@@ -51,9 +51,10 @@ class GenerateModuleYmlTask implements ModuloTask {
 
     /**
      * Get the module.yml file and create it if doesn't exist.
+     * @param project The target project.
      * @return The file.
      */
-    private def getModuleConfigFile() {
+    private def getModuleConfigFile(project) {
         final target = moduleExtension.target ?: "${project.projectDir.path}/src/main/resources"
         final resources = new File(target)
         resources.mkdirs()
