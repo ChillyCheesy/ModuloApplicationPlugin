@@ -19,17 +19,16 @@ class ModuloApplicationPlugin implements Plugin<Project> {
     @Override
     void apply(Project project) {
         project.pluginManager.apply 'java-library'
-        final def moduleExtension = project.extensions.create('module', ModuleExtension, project)
-        final def generateModuleYml = new GenerateModuleYmlTask(moduleExtension)
-        final def runModuloServer = new RunModuloServer(moduleExtension)
-        final def deployModule = new DeployModuleTask()
+        final moduleExtension = project.extensions.create('module', ModuleExtension, project)
+        final generateModuleYml = new GenerateModuleYmlTask(moduleExtension)
+        final runModuloServer = new RunModuloServer(moduleExtension)
+        final deployModule = new DeployModuleTask()
 
-        final def generateModuleYmlTask = generateModuleYml.generate(project)
-        final def runModuloServerTask = runModuloServer.generate(project)
-        final def deployModuleTask = deployModule.generate(project)
+        final generateModuleYmlTask = generateModuleYml.generate(project)
+        final runModuloServerTask = runModuloServer.generate(project)
+        final deployModuleTask = deployModule.generate(project)
 
         project.processResources.dependsOn generateModuleYmlTask
-        project.assemble.dependsOn deployModuleTask
         deployModuleTask.dependsOn project.assemble
         runModuloServerTask.dependsOn deployModuleTask
     }
