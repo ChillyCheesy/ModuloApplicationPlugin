@@ -5,7 +5,9 @@
 [![Gradle Plugin Portal](https://img.shields.io/gradle-plugin-portal/v/com.chillycheesy.modulo-application)](https://plugins.gradle.org/plugin/com.chillycheesy.modulo-application)
 
 </div>
----
+
+---  
+
 ## Overview.
 The HomeTracker Application Plugin give help to deploy HomeTracker's modules.
 
@@ -108,7 +110,8 @@ The processResources task depends on the generateModuleYml task.
 
 
 ### runModuloServer. <a id="tasks-runModuloServer"></a>
-This task run a modulo server. The version of the modulo server is defined by the **moduloVersion** parameter. *[(See moduloVersion closure for more information.)](#closures-module)*  
+This task run a modulo server. The version of the modulo server is defined by the **moduloVersion** parameter.  
+*[(See moduloVersion closure for more information.)](#closures-module)*  
 The server name is automatically downloaded and placed in the ```modulo-server``` folder at the root of your project.  
 The runModuloServer task depends on the deployModuleToLocalModuloServer task.
 
