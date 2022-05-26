@@ -42,7 +42,7 @@ class ModuleExtension {
     /**
      * Modulo api version.
      */
-    String moduloVersion = 'BINKS-0.1.0'
+    String moduloVersion = 'BINKS-0.1.1'
 
     /**
      * Init the extension with default values.
