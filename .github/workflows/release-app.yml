@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v2
         with:
-          distribution: 'azul'
+          distribution: 'temurin'
           java-version: '16'
       - name: Extract project version
         run: |
