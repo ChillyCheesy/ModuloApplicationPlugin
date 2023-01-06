@@ -31,5 +31,8 @@ class ModuloApplicationPlugin implements Plugin<Project> {
         project.processResources.dependsOn generateModuleYmlTask
         deployModuleTask.dependsOn project.assemble
         runModuloServerTask.dependsOn deployModuleTask
+
+        project.compileJava.options.compilerArgs << '-parameters'
+        project.compileTestJava.options.compilerArgs << '-parameters'
     }
 }
