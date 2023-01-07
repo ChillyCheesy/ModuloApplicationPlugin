@@ -31,7 +31,7 @@ To apply the plugin, please add this following part of code.
 
 ```groovy
 plugins {
-    id 'com.chillycheesy.modulo-application' version '1.1.0'
+    id 'com.chillycheesy.modulo-application' version '1.2.1'
 }
 
 group 'your.group'
@@ -98,8 +98,8 @@ The following array was the exhaustive list of **module**'s parameters.
 |   dependencies   | Module dependencies.                                     |    dependencies    |                                    Empty list. |
 | softDependencies | Module soft dependencies.                                |  softDependencies  |                                    Empty list. |
 |      target      | The output folder for the generated **module.yml** file. |        none        |                           'src/main/resources' |
-|  moduloVersion   | The target version for the modulo server.                |        none        |                                  'BINKS-0.1.1' |
-
+|  moduloVersion   | The target version for the modulo server.                |        none        |                                  'BINKS-0.3.0' |
+|  testServerPath  | The path to the test server.                             |        none        |                                'modulo-server' | 
 
 
 ## Tasks section. <a id="tasks"></a>

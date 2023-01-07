@@ -42,7 +42,12 @@ class ModuleExtension {
     /**
      * Modulo api version.
      */
-    String moduloVersion = 'BINKS-0.1.1'
+    String moduloVersion = 'BINKS-0.3.0'
+    /**
+     * Define the path where run the test server.
+     */
+    String testServerPath = 'modulo-server'
+
 
     /**
      * Init the extension with default values.

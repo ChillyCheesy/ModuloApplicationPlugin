@@ -39,7 +39,7 @@ class RunModuloServer implements ModuloTask {
             group = 'modulo'
             description = 'Run a Modulo server.'
             doLast {
-                final file = new File("${project.rootDir.path}/modulo-server/modulo-server-${moduleExtension.moduloVersion}.jar")
+                final file = new File("${project.rootDir.path}/${moduleExtension.testServerPath}/modulo-server-${moduleExtension.moduloVersion}.jar")
                 assert file.parentFile.exists() || file.parentFile.mkdirs()
                 project.delete(project.fileTree(file.parent) {
                     include '*.jar'
@@ -48,7 +48,7 @@ class RunModuloServer implements ModuloTask {
                 project.javaexec {
                     main = '-jar'
                     args = [file.absolutePath]
-                    workingDir = 'modulo'
+                    workingDir = moduleExtension.testServerPath
                     standardInput = System.in
                     standardOutput = System.out
                 }
